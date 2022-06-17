@@ -1,7 +1,4 @@
-# genome
-
-This application was generated using JHipster 7.8.1, you can find documentation and help at [https://www.jhipster.tech](https://www.jhipster.tech).
-
+# Andres Munoz Genome code challenge
 This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
 This application is configured for Service Discovery and Configuration with . On launch, it will refuse to start if it is not able to connect to .
 
@@ -9,15 +6,8 @@ This application is configured for Service Discovery and Configuration with . On
 
 Node is required for generation and recommended for development. `package.json` is always generated for a better development experience with prettier, commit hooks, scripts and so on.
 
-In the project root, JHipster generates configuration files for tools like git, prettier, eslint, husk, and others that are well known and you can find references in the web.
-
 `/src/*` structure follows default Java structure.
 
-- `.yo-rc.json` - Yeoman configuration file
-  JHipster configuration is stored in this file at `generator-jhipster` key. You may find `generator-jhipster-*` for specific blueprints configuration.
-- `.yo-resolve` (optional) - Yeoman conflict resolver
-  Allows to use a specific action when conflicts are found skipping prompts for files that matches a pattern. Each line should match `[pattern] [action]` with pattern been a [Minimatch](https://github.com/isaacs/minimatch#minimatch) pattern and action been one of skip (default if ommited) or force. Lines starting with `#` are considered comments and are ignored.
-- `.jhipster/*.json` - JHipster entity configuration files
 - `/src/main/docker` - Docker configurations for the application and services that the application depends on
 
 ## Development
@@ -27,13 +17,6 @@ To start your application in the dev profile, run:
 ```
 ./gradlew
 ```
-
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-### JHipster Control Center
-
-JHipster Control Center can help you manage and control your application(s). You can start a local control center server (accessible on http://localhost:7419) with:
-
 ```
 docker-compose -f src/main/docker/jhipster-control-center.yml up
 ```
@@ -54,7 +37,7 @@ To ensure everything worked, run:
 java -jar build/libs/*.jar
 ```
 
-Refer to [Using JHipster in production][] for more details.
+Refer to [Using in production][] for more details.
 
 ### Packaging as war
 
@@ -96,7 +79,7 @@ For more information, refer to the [Code quality page][].
 
 ## Using Docker to simplify development (optional)
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+You can use Docker to improve your development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
 
 For example, to start a postgresql database in a docker container, run:
 
@@ -129,14 +112,5 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 7.8.1 archive]: https://www.jhipster.tech
-[doing microservices with jhipster]: https://www.jhipster.tech/microservices-architecture/
-[using jhipster in development]: https://www.jhipster.tech/development/
-[using docker and docker-compose]: https://www.jhipster.tech/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/production/
-[running tests page]: https://www.jhipster.tech/running-tests/
-[code quality page]: https://www.jhipster.tech/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/setting-up-ci/
 [node.js]: https://nodejs.org/
 [npm]: https://www.npmjs.com/
