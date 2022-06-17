@@ -2,6 +2,10 @@
 This is a "microservice" application intended to be part of a microservice architecture, please refer to the page of the documentation for more information.
 This application is configured for Service Discovery and Configuration with . On launch, it will refuse to start if it is not able to connect to .
 
+![](GET.png)
+
+![](POST.png)
+
 ## Project Structure
 
 Node is required for generation and recommended for development. `package.json` is always generated for a better development experience with prettier, commit hooks, scripts and so on.

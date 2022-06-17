@@ -32,7 +32,7 @@ class GreetingResourceIT {
     private static final String DEFAULT_GREETING = "AAAAAAAAAA";
     private static final String UPDATED_GREETING = "BBBBBBBBBB";
 
-    private static final String ENTITY_API_URL = "/api/greetings";
+    private static final String ENTITY_API_URL = "/api/greeting";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
     private static Random random = new Random();

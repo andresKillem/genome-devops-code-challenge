@@ -3,11 +3,14 @@ package com.genome.munoz.web.rest;
 import com.genome.munoz.domain.Messages;
 import com.genome.munoz.repository.MessagesRepository;
 import com.genome.munoz.web.rest.errors.BadRequestAlertException;
+
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,18 +48,37 @@ public class MessagesResource {
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new messages, or with status {@code 400 (Bad Request)} if the messages has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
+//    @PostMapping("/messages")
+//    public ResponseEntity<Messages> createMessages(@RequestBody Messages messages) throws URISyntaxException {
+//        log.debug("REST request to save Messages : {}", messages);
+//        if (messages.getId() != null) {
+//            throw new BadRequestAlertException("A new messages cannot already have an ID", ENTITY_NAME, "idexists");
+//        }
+//        Messages result = messagesRepository.save(messages);
+//        return ResponseEntity
+//            .created(new URI("/api/messages/" + result.getId()))
+//            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+//            .body(result);
+//    }
     @PostMapping("/messages")
-    public ResponseEntity<Messages> createMessages(@RequestBody Messages messages) throws URISyntaxException {
-        log.debug("REST request to save Messages : {}", messages);
-        if (messages.getId() != null) {
-            throw new BadRequestAlertException("A new messages cannot already have an ID", ENTITY_NAME, "idexists");
-        }
+    public List<Messages> createMessages() throws URISyntaxException {
+        Integer sizeLst =  messagesRepository.findAll().size();
+        Integer currentSize = sizeLst + 1;
+        Messages messages = new Messages();
+        messages.setId((long) currentSize);
+        messages.setHireDate(Instant.now());
+        messages.setMessage("Default new last message, total of rows " + currentSize);
         Messages result = messagesRepository.save(messages);
-        return ResponseEntity
+        ResponseEntity
             .created(new URI("/api/messages/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
             .body(result);
+        List<Messages> resultList = messagesRepository.findAll();
+        List<Messages> resultListLast = resultList.subList(Math.max(resultList.size() - 3, 0), resultList.size());
+        resultListLast.get(0).setMessage("Total of rows :" + currentSize);
+        return resultListLast;
     }
+
 
     /**
      * {@code PUT  /messages/:id} : Updates an existing messages.
@@ -145,10 +167,14 @@ public class MessagesResource {
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of messages in body.
      */
-    @GetMapping("/messages")
+    @GetMapping("/greeting")
     public List<Messages> getAllMessages() {
-        log.debug("REST request to get all Messages");
-        return messagesRepository.findAll();
+        List<Messages> resultList = messagesRepository.findAll();
+        Integer sizeLst =  messagesRepository.findAll().size();
+        Integer currentSize = sizeLst + 1;
+        List<Messages> resultListLast = resultList.subList(Math.max(resultList.size() - 3, 0), resultList.size());
+        resultListLast.get(0).setMessage("Total of rows :" + currentSize);
+        return resultListLast;
     }
 
     /**
