@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - vars/keyboard.yml
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=3600
+
+  roles:
+    - angstwad.docker_ubuntu
+    - gantsign.keyboard
+    - terminal
+    - devops
+    - dev
+    - setup
