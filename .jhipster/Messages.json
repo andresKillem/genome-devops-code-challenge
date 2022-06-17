@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20220617040912",
+  "clientRootFolder": "genome",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "messages",
+  "fields": [
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hireDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "/**\\nThe Employee entity.",
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "genome",
+  "name": "Messages",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "javadoc": "Another side of the same relationship",
+      "otherEntityName": "greeting",
+      "otherEntityRelationshipName": "messages",
+      "relationshipName": "greeting",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

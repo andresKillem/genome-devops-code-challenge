@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220617040911",
+  "clientRootFolder": "genome",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "greeting",
+  "fields": [
+    {
+      "fieldName": "greeting",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "genome",
+  "name": "Greeting",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "javadoc": "A relationship",
+      "otherEntityName": "messages",
+      "otherEntityRelationshipName": "greeting",
+      "relationshipName": "messages",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
